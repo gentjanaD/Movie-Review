@@ -1,0 +1,15 @@
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  background-color: rgb(77, 68, 77);
+}
+
+.movieList {
+  display: flex;
+}
+
+.button {
+  background-color: red;
+  margin: 20px;
+}
