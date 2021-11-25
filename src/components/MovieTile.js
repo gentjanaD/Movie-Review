@@ -7,14 +7,16 @@ export const MovieTile = ({
   movie,
 }) => {
   return (
-    <div>
+    <div className="movieTile">
       <img src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path} />
       {onList ? (
-        <button className="button" onClick={() => addToWatchList(movie)}>
-          Add To List
+        <button className="addButton" onClick={() => addToWatchList(movie)}>
+          +
         </button>
       ) : (
-        <button onClick={() => deleteFromList(movie)}>Remove Movie</button>
+        <button className="deleteButton" onClick={() => deleteFromList(movie)}>
+          -
+        </button>
       )}
     </div>
   );

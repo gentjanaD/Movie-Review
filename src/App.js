@@ -30,14 +30,14 @@ const App = () => {
 
   return (
     <div className="all">
-      <h1>See All Movies</h1>
+      <h1>Discover Movies</h1>
       <MovieList
         movieList={movieList}
         deleteFromList={deleteFromList}
         addToWatchList={addToWatchList}
         onList={true}
       />
-      <h1>See WatchList Movies</h1>
+      <h1>Your WatchList</h1>
       <WatchList
         watchList={watchList}
         deleteFromList={deleteFromList}
