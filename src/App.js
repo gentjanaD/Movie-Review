@@ -21,11 +21,11 @@ const App = () => {
   };
 
   const deleteFromList = (movie) => {
-    return setWatchList(
-      watchList.filter((movie) => {
-        movie !== movie;
-      })
-    );
+    setWatchList((prevState) => {
+      return prevState.includes(movie)
+        ? prevState.filter((el) => movie !== el)
+        : [...prevState, movie];
+    });
   };
 
   return (

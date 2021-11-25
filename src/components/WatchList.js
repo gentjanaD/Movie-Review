@@ -4,7 +4,7 @@ export const WatchList = ({
   watchList,
   addToWatchList,
   deleteFromList,
-  onList,
+  // onList,
 }) => {
   return (
     <div className="movieList">
