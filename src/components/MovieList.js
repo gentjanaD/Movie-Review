@@ -10,8 +10,9 @@ export const MovieList = ({
   return (
     <div className="movieList">
       {movieList &&
-        movieList.map((movie) => (
+        movieList.map((movie, index) => (
           <MovieTile
+            key={index}
             movie={movie}
             addToWatchList={addToWatchList}
             onList={true}

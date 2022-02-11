@@ -9,8 +9,9 @@ export const WatchList = ({
   return (
     <div className="movieList">
       {watchList &&
-        watchList.map((movie) => (
+        watchList.map((movie, index) => (
           <MovieTile
+            key={index}
             movie={movie}
             addToWatchList={addToWatchList}
             deleteFromList={deleteFromList}

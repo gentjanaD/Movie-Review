@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { MovieList } from "./components/MovieList";
 import { WatchList } from "./components/WatchList";
-import { GetMovies } from "./Services/ApiClient";
+import { fetchMovies } from "./redux/movieActions";
 import "./App.css";
-const App = () => {
-  const [movieList, setMovieList] = useState([]);
-  const [watchList, setWatchList] = useState([]);
 
-  const fetchMovies = () => {
-    GetMovies().then((movies) => setMovieList(movies));
-  };
+const App = () => {
+  const dispatch = useDispatch();
+  const [watchList, setWatchList] = useState([]);
+  const allMovies = useSelector((state) => state.movies);
   useEffect(() => {
-    fetchMovies();
+    dispatch(fetchMovies());
   }, []);
 
   const addToWatchList = (movie) => {
     watchList.includes(movie) ||
       setWatchList((prevState) => [...prevState, movie]);
-    console.log("watch", watchList);
   };
+  console.log("watchList", watchList);
 
   const deleteFromList = (movie) => {
     setWatchList((prevState) => {
@@ -30,14 +29,14 @@ const App = () => {
 
   return (
     <div className="all">
-      <h1>Discover Movies</h1>
+      <h1>Discover Movies {allMovies.length}</h1>
       <MovieList
-        movieList={movieList}
+        movieList={allMovies}
         deleteFromList={deleteFromList}
         addToWatchList={addToWatchList}
         onList={true}
       />
-      <h1>Your WatchList</h1>
+      <h1>Your WatchList {watchList.length}</h1>
       <WatchList
         watchList={watchList}
         deleteFromList={deleteFromList}
