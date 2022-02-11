@@ -6,6 +6,9 @@ export const MovieTile = ({
   deleteFromList,
   movie,
 }) => {
+  {
+    console.log("hey", movie);
+  }
   return (
     <div className="movieTile">
       <img src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path} />

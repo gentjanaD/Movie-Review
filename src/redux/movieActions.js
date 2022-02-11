@@ -34,3 +34,10 @@ export const fetchMovies = () => {
       });
   };
 };
+
+// export const addToWatchList = (movieId) => {
+//   return {
+//     type: "ADD_TO_WATCHLIST",
+//     payload: movieId,
+//   };
+// };
