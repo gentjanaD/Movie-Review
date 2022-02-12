@@ -2,14 +2,19 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: path.join(__dirname, "src", "index.js"),
+  target: "web",
   output: {
     path: path.resolve(__dirname, "dist"),
+  },
+  resolve: {
+    extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
   },
   mode: "development",
   module: {
     rules: [
       {
         test: /\.?js$/,
+        // loader: "awesome-typescript-loader",
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -19,10 +24,18 @@ module.exports = {
         },
       },
       {
+        test: /\.tsx?/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
+      {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
       },
     ],
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
   },
   plugins: [
     new HtmlWebpackPlugin({

@@ -26,6 +26,7 @@ export const fetchMovies = () => {
       .get("https://movied.herokuapp.com/discover")
       .then((response) => {
         const movies = response.data;
+        console.log("moviesAction", movies);
         dispatch(fetchMoviesSuccess(movies));
       })
       .catch((error) => {

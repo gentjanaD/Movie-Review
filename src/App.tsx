@@ -3,12 +3,20 @@ import { useSelector, useDispatch } from "react-redux";
 import { WatchList } from "./components/WatchList";
 import { fetchMovies } from "./redux/movieActions";
 import "./App.css";
-import { MovieTile } from "./components/MovieTile";
+import MovieTile from "./components/MovieTile";
+import { Movie } from "./Types/movieTypes";
 
-const App = () => {
+type State = {
+  error: string;
+  loading: boolean;
+  movies: Movie[];
+};
+const App: React.FC = () => {
   const dispatch = useDispatch();
-  const fetchedMovies = useSelector((state) => state.movies);
-  const [watchList, setWatchList] = useState([]);
+  // const fetchedMovies: Movie[] = useSelector((state) => state.movies);
+
+  const fetchedMovies = useSelector((state: State) => state.movies);
+  const [watchList, setWatchList] = useState<Movie[]>([]);
 
   useEffect(() => {
     dispatch(fetchMovies());
@@ -16,12 +24,12 @@ const App = () => {
 
   console.log(fetchedMovies);
 
-  const addToWatchList = (movie) => {
+  const addToWatchList = (movie: Movie) => {
     watchList.includes(movie) ||
       setWatchList((prevState) => [...prevState, movie]);
   };
 
-  const deleteFromList = (movie) => {
+  const deleteFromList = (movie: Movie) => {
     setWatchList((prevState) => {
       return prevState.includes(movie)
         ? prevState.filter((el) => movie !== el)
@@ -48,7 +56,6 @@ const App = () => {
         watchList={watchList}
         deleteFromList={deleteFromList}
         addToWatchList={addToWatchList}
-        onList={false}
       />
     </div>
   );

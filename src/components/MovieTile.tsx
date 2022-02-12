@@ -1,14 +1,20 @@
 import React from "react";
 import "../App.css";
-export const MovieTile = ({
+import { Movie } from "../Types/movieTypes";
+
+type Props = {
+  addToWatchList: (movie: any) => void;
+  onList: boolean;
+  deleteFromList: (movie: any) => void;
+  movie: Movie;
+};
+
+const MovieTile: React.FC<Props> = ({
   addToWatchList,
   onList,
   deleteFromList,
   movie,
 }) => {
-  {
-    console.log("hey", movie);
-  }
   return (
     <div className="movieTile">
       <img src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path} />
@@ -24,3 +30,5 @@ export const MovieTile = ({
     </div>
   );
 };
+
+export default MovieTile;

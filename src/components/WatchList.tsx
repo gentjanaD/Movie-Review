@@ -1,10 +1,16 @@
 import React from "react";
-import { MovieTile } from "./MovieTile";
-export const WatchList = ({
+import MovieTile from "./MovieTile";
+import { Movie } from "../Types/movieTypes";
+
+type Props = {
+  watchList: Movie[];
+  addToWatchList: (movie: any) => void;
+  deleteFromList: (movie: any) => void;
+};
+export const WatchList: React.FC<Props> = ({
   watchList,
   addToWatchList,
   deleteFromList,
-  // onList,
 }) => {
   return (
     <div className="movieList">
