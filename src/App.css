@@ -8,6 +8,7 @@ body {
 .movieList {
   display: flex;
   /* flex-wrap: wrap; */
+  flex-direction: row;
 }
 .watchList {
   display: flex;

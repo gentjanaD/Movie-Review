@@ -6,6 +6,7 @@ type Props = {
   watchList: Movie[];
   addToWatchList: (movie: any) => void;
   deleteFromList: (movie: any) => void;
+  onList: boolean;
 };
 export const WatchList: React.FC<Props> = ({
   watchList,

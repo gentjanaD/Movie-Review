@@ -1,4 +1,5 @@
-import axios from "axios";
+const BASE_URL = "https://movied.herokuapp.com";
+
 export const fetchMoviesRequest = () => {
   return {
     type: "FETCH_MOVIES_REQUEST",
@@ -19,26 +20,37 @@ export const fetchMoviesFailure = (error) => {
   };
 };
 
-export const fetchMovies = () => {
+const handleError = (response) => {
+  if (!response.ok) {
+    throw Error(response.statusText);
+  }
+  return response;
+};
+
+export const fetchDiscoverMovies = () => {
   return (dispatch) => {
     dispatch(fetchMoviesRequest);
-    axios
-      .get("https://movied.herokuapp.com/discover")
-      .then((response) => {
-        const movies = response.data;
-        console.log("moviesAction", movies);
-        dispatch(fetchMoviesSuccess(movies));
+    return fetch(`${BASE_URL}/discover`)
+      .then(handleError)
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(fetchMoviesSuccess(data));
+        return data;
       })
-      .catch((error) => {
-        const errorMessage = error.message;
-        dispatch(fetchMoviesFailure(errorMessage));
-      });
+      .catch((error) => dispatch(fetchMoviesFailure(error)));
   };
 };
 
-// export const addToWatchList = (movieId) => {
-//   return {
-//     type: "ADD_TO_WATCHLIST",
-//     payload: movieId,
-//   };
-// };
+export const fetchMoviesByCatId = (id) => {
+  return (dispatch) => {
+    dispatch(fetchMoviesRequest);
+    return fetch(`${BASE_URL}/category/${id}`)
+      .then(handleError)
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch(fetchMoviesSuccess(data));
+        return data;
+      })
+      .catch((error) => dispatch(fetchMoviesFailure(error)));
+  };
+};

@@ -17,6 +17,7 @@ const MovieTile: React.FC<Props> = ({
 }) => {
   return (
     <div className="movieTile">
+      <h1>{movie.title}</h1>
       <img src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path} />
       {onList ? (
         <button className="addButton" onClick={() => addToWatchList(movie)}>
