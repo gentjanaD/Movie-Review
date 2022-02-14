@@ -1,14 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchDiscoverMovies, fetchMoviesByCatId } from "./redux/movieActions";
 import { fetchCategories } from "./redux/categoryActions";
 import "./App.css";
 import { MovieList } from "./components/movieList";
-import { Category, State } from "./Types/movieTypes";
+import { Movie, Category, State } from "./Types/movieTypes";
+import { WatchList } from "./components/WatchList";
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
+  const [watchList, setWatchList] = useState<Movie[]>([]);
 
+  const addToWatchList = (movie: Movie) => {
+    watchList.includes(movie) ||
+      setWatchList((prevState) => [...prevState, movie]);
+  };
+
+  const deleteFromList = (movie: Movie) => {
+    setWatchList((prevState) => {
+      return prevState.includes(movie)
+        ? prevState.filter((el) => movie !== el)
+        : [...prevState];
+    });
+  };
   const fetchedMovies = useSelector(
     (state: State) => state.movieReducer.movies
   );
@@ -27,13 +41,34 @@ const App: React.FC = () => {
     dispatch(fetchDiscoverMovies());
   }, [fetchedCategories]);
   return (
-    <div className="movieList">
+    <div className="app">
       {Object.keys(fetchedMovies).map((category: string, index: number) => (
-        <div style={{ color: "white" }} key={index}>
-          {category}
-          <MovieList category={category} fetchedMovies={fetchedMovies} />
+        <div
+          className="category__movieList"
+          style={{ color: "white" }}
+          key={index}
+        >
+          <h1>{category}</h1>
+          <div className="app_movieList">
+            <MovieList
+              category={category}
+              fetchedMovies={fetchedMovies}
+              deleteFromList={deleteFromList}
+              addToWatchList={addToWatchList}
+              onList={false}
+            />
+          </div>
         </div>
       ))}
+      <div>
+        <h1>Your WatchList {watchList.length}</h1>
+        <WatchList
+          watchList={watchList}
+          deleteFromList={deleteFromList}
+          addToWatchList={addToWatchList}
+          onList={false}
+        />
+      </div>
     </div>
   );
 };

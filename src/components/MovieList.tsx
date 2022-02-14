@@ -6,22 +6,17 @@ import { WatchList } from "./WatchList";
 type Props = {
   category: string;
   fetchedMovies: any;
+  addToWatchList: (movie: any) => void;
+  onList: boolean;
+  deleteFromList: (movie: any) => void;
+  movie?: Movie;
 };
-export const MovieList: React.FC<Props> = ({ category, fetchedMovies }) => {
-  const [watchList, setWatchList] = useState<Movie[]>([]);
-
-  const addToWatchList = (movie: Movie) => {
-    watchList.includes(movie) ||
-      setWatchList((prevState) => [...prevState, movie]);
-  };
-
-  const deleteFromList = (movie: Movie) => {
-    setWatchList((prevState) => {
-      return prevState.includes(movie)
-        ? prevState.filter((el) => movie !== el)
-        : [...prevState];
-    });
-  };
+export const MovieList: React.FC<Props> = ({
+  category,
+  fetchedMovies,
+  addToWatchList,
+  deleteFromList,
+}) => {
   return (
     <div className="catMovieList">
       <div className="cat_movieList">
@@ -35,14 +30,6 @@ export const MovieList: React.FC<Props> = ({ category, fetchedMovies }) => {
               onList={true}
             />
           ))}
-
-        <h1>Your WatchList {watchList.length}</h1>
-        <WatchList
-          watchList={watchList}
-          deleteFromList={deleteFromList}
-          addToWatchList={addToWatchList}
-          onList={false}
-        />
       </div>
     </div>
   );
