@@ -35,7 +35,6 @@ export const fetchCategories = () => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(fetchCategoriesSuccess(data));
-        console.log("cate", data);
         return data;
       })
       .catch((error) => dispatch(fetchCategoriesFailure(error)));

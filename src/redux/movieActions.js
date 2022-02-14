@@ -67,7 +67,6 @@ export const fetchMoviesByCatId = (cat) => {
       .then(handleError)
       .then((res) => res.json())
       .then((data) => {
-        console.log("mAdata", data);
         dispatch(fetchMoviesSuccess({ movies: data, category: cat.name }));
         return data;
       })

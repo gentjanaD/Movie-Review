@@ -13,7 +13,6 @@ const movieReducer = (state = initialState, action) => {
         error: "",
       };
     case "FETCH_MOVIES_SUCCESS":
-      console.log("movies", state.movies);
       return {
         loading: false,
         movies: { ...state.movies, [action.category]: action.payload },
@@ -32,7 +31,6 @@ const movieReducer = (state = initialState, action) => {
         error: "",
       };
     case "FETCH_DISCOVER_MOVIES_SUCCESS":
-      console.log("movies", state.movies);
       return {
         loading: false,
         movies: { ...state.movies, Discover: action.payload },

@@ -1,6 +1,6 @@
 body {
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
   width: 100vw;
   background-color: rgb(20, 18, 20);
 }
@@ -8,8 +8,19 @@ body {
 .movieList {
   display: flex;
   /* flex-wrap: wrap; */
+  flex-direction: column;
+  max-width: 40px;
+}
+
+.catMovieList {
+  display: flex;
   flex-direction: row;
 }
+.cat_movieList {
+  display: flex;
+  flex-direction: row;
+}
+
 .watchList {
   display: flex;
 }

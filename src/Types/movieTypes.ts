@@ -18,3 +18,16 @@ export type Category = {
   id: number;
   name: string;
 };
+export type State = {
+  movieReducer: {
+    error: string;
+    loading: boolean;
+    movies: Movie[];
+    genre_ids: number;
+  };
+  categoryReducer: {
+    error: string;
+    loading: boolean;
+    categories: Category[];
+  };
+};
