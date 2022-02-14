@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "../App.css";
 import { Movie } from "../Types/movieTypes";
 import MovieTile from "./MovieTile";
-import { WatchList } from "./WatchList";
 type Props = {
   category: string;
   fetchedMovies: any;

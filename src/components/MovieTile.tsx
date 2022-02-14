@@ -19,15 +19,20 @@ const MovieTile: React.FC<Props> = ({
     <div className="movieTile">
       <h3>{movie.title}</h3>
       <img src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path} />
-      {onList ? (
-        <button className="addButton" onClick={() => addToWatchList(movie)}>
-          +
-        </button>
-      ) : (
-        <button className="deleteButton" onClick={() => deleteFromList(movie)}>
-          -
-        </button>
-      )}
+      <div>
+        {onList ? (
+          <button className="addButton" onClick={() => addToWatchList(movie)}>
+            +
+          </button>
+        ) : (
+          <button
+            className="deleteButton"
+            onClick={() => deleteFromList(movie)}
+          >
+            -
+          </button>
+        )}
+      </div>
     </div>
   );
 };

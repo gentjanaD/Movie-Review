@@ -1,17 +1,15 @@
 body {
-  /* display: flex; */
+  display: flex;
   /* flex-direction: column; */
-  /* width: 100vw; */
+  width: 100vw;
   /* height: 100vh; */
   background-color: rgb(21, 21, 21);
 }
 
 .app {
-  display: flex;
-  /* flex-wrap: wrap; */
   flex-direction: column;
-  max-width: 40px;
-  margin: 20px;
+  min-width: 50px;
+  margin-left: 10px;
 }
 
 .app h1 {
@@ -25,11 +23,7 @@ body {
 .category__movieList {
   display: flex;
   flex-direction: column;
-}
-
-.catMovieList {
-  display: flex;
-  flex-direction: row;
+  width: 100%;
 }
 .cat_movieList {
   display: flex;
@@ -39,14 +33,19 @@ body {
 .movieTile {
   display: flex;
   flex-direction: column;
-  /* position: relative; */
+  position: relative;
   margin-left: 10px;
   margin-right: 10px;
-  margin-bottom: 70px;
   background-color: rgb(84, 82, 82);
+}
+
+.app_watchList h1 {
+  min-width: 100px;
 }
 .watchList {
   display: flex;
+  flex-direction: row;
+  color: white;
 }
 
 .button {

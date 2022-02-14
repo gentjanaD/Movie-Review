@@ -60,8 +60,8 @@ const App: React.FC = () => {
           </div>
         </div>
       ))}
-      <div>
-        <h1>Your WatchList {watchList.length}</h1>
+      <div className="app_watchList">
+        <h1>Your WatchList</h1>
         <WatchList
           watchList={watchList}
           deleteFromList={deleteFromList}

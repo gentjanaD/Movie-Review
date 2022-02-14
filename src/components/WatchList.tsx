@@ -1,7 +1,7 @@
 import React from "react";
 import MovieTile from "./MovieTile";
 import { Movie } from "../Types/movieTypes";
-
+import "../App.css";
 type Props = {
   watchList: Movie[];
   addToWatchList: (movie: any) => void;
@@ -14,7 +14,7 @@ export const WatchList: React.FC<Props> = ({
   deleteFromList,
 }) => {
   return (
-    <div className="movieList">
+    <div className="watchList">
       {watchList &&
         watchList.map((movie, index) => (
           <MovieTile
