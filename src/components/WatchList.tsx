@@ -9,18 +9,14 @@ type Props = {
 export const WatchList: React.FC<Props> = ({ watchList, deleteFromList }) => {
   return (
     <div className="watchList">
-      {watchList.length === 0 ? (
-        <p>No favorites added</p>
-      ) : (
-        watchList.map((movie, index) => (
-          <MovieTile
-            key={index}
-            movie={movie}
-            deleteFromList={deleteFromList}
-            onList={false}
-          />
-        ))
-      )}
+      {watchList.map((movie, index) => (
+        <MovieTile
+          key={index}
+          movie={movie}
+          deleteFromList={deleteFromList}
+          onList={false}
+        />
+      ))}
     </div>
   );
 };

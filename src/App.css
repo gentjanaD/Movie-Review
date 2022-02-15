@@ -10,8 +10,21 @@ body {
   flex-direction: column;
   min-width: 50px;
   margin-left: 10px;
-  /* background-image: url("../assets/RelishLogo_White\ knockout.png");
-  background-repeat: no-repeat; */
+  /* position: relative; */
+}
+.logo_div {
+  display: flex;
+  justify-content: flex-end;
+  /* position: static; */
+}
+img {
+  width: 170px;
+  position: absolute;
+  position: sticky;
+  top: 0;
+  right: 0;
+  border: 0;
+  z-index: -1;
 }
 
 .app h1 {
@@ -23,13 +36,15 @@ body {
   flex-direction: row;
 }
 .category__movieList {
+  /* min-width: 200px; */
+
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 .cat_movieList {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
 }
 
 .movieTile {
@@ -43,6 +58,7 @@ body {
 
 .app_watchList h1 {
   min-width: 100px;
+  /* margin-top: -45px; */
 }
 .watchList {
   display: flex;
@@ -51,7 +67,7 @@ body {
 }
 .watchList p {
   margin-left: 10px;
-  color: rgb(169, 169, 6);
+  color: #e04a4a;
 }
 
 .button {
@@ -63,13 +79,13 @@ h1 {
 }
 
 .movieTile img {
+  width: auto;
   height: 100%;
 }
 
 .movieTile h3 {
   display: flex;
   justify-content: center;
-  /* max-width: 80%; */
   align-items: center;
   text-align: center;
   padding: 5px;
