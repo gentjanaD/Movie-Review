@@ -1,8 +1,6 @@
 body {
   display: flex;
-  /* flex-direction: column; */
   width: 100vw;
-  /* height: 100vh; */
   background-color: rgb(21, 21, 21);
 }
 
@@ -10,7 +8,7 @@ body {
   flex-direction: column;
   min-width: 50px;
   margin-left: 10px;
-  /* position: relative; */
+  position: relative;
 }
 .logo_div {
   display: flex;
@@ -34,17 +32,18 @@ img {
 .app_movieList {
   display: flex;
   flex-direction: row;
+  overflow: scroll;
 }
 .category__movieList {
-  /* min-width: 200px; */
-
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 .cat_movieList {
   display: flex;
-  /* flex-direction: row; */
+  overflow: auto;
+  padding: 4px;
+  width: 100vw;
 }
 
 .movieTile {
@@ -93,7 +92,7 @@ h1 {
 }
 .addButton {
   position: absolute;
-  top: -13px;
+  top: -5px;
   right: -13px;
   font-weight: bold;
   font-size: large;
@@ -107,7 +106,7 @@ h1 {
 
 .deleteButton {
   position: absolute;
-  top: -13px;
+  top: -5px;
   right: -13px;
   font-weight: bold;
   font-size: large;

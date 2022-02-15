@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchDiscoverMovies, fetchMoviesByCatId } from "./redux/movieActions";
 import { fetchCategories } from "./redux/categoryActions";
 import "./App.css";
-import { MovieList } from "./components/movieList";
+import MovieList from "./components/MovieList";
 import { Movie, Category, State } from "./Types/movieTypes";
 import { WatchList } from "./components/WatchList";
 import logo from "../public/assets/logo3.png";
