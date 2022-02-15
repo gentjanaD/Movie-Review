@@ -10,6 +10,8 @@ body {
   flex-direction: column;
   min-width: 50px;
   margin-left: 10px;
+  /* background-image: url("../assets/RelishLogo_White\ knockout.png");
+  background-repeat: no-repeat; */
 }
 
 .app h1 {
@@ -36,7 +38,7 @@ body {
   position: relative;
   margin-left: 10px;
   margin-right: 10px;
-  background-color: rgb(84, 82, 82);
+  border: solid rgb(83, 80, 80) 2px;
 }
 
 .app_watchList h1 {
@@ -46,6 +48,10 @@ body {
   display: flex;
   flex-direction: row;
   color: white;
+}
+.watchList p {
+  margin-left: 10px;
+  color: rgb(169, 169, 6);
 }
 
 .button {

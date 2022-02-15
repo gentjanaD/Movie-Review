@@ -6,7 +6,7 @@ import "./App.css";
 import { MovieList } from "./components/movieList";
 import { Movie, Category, State } from "./Types/movieTypes";
 import { WatchList } from "./components/WatchList";
-
+import logo from "../public/assets/logo.png";
 const App: React.FC = () => {
   const dispatch = useDispatch();
   const [watchList, setWatchList] = useState<Movie[]>([]);
@@ -42,6 +42,13 @@ const App: React.FC = () => {
   }, [fetchedCategories]);
   return (
     <div className="app">
+      <img src={logo} />
+      {/* <img src={window.location.origin + "/public/assets/logo.png"} /> */}
+      {/* <img src={process.env.PUBLIC_URL + "/logo.png"} /> */}
+      <div className="app_watchList">
+        <h1>Favorites</h1>
+        <WatchList watchList={watchList} deleteFromList={deleteFromList} />
+      </div>
       {Object.keys(fetchedMovies).map((category: string, index: number) => (
         <div
           className="category__movieList"
@@ -53,22 +60,11 @@ const App: React.FC = () => {
             <MovieList
               category={category}
               fetchedMovies={fetchedMovies}
-              deleteFromList={deleteFromList}
               addToWatchList={addToWatchList}
-              onList={false}
             />
           </div>
         </div>
       ))}
-      <div className="app_watchList">
-        <h1>Your WatchList</h1>
-        <WatchList
-          watchList={watchList}
-          deleteFromList={deleteFromList}
-          addToWatchList={addToWatchList}
-          onList={false}
-        />
-      </div>
     </div>
   );
 };

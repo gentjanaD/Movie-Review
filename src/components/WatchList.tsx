@@ -4,27 +4,23 @@ import { Movie } from "../Types/movieTypes";
 import "../App.css";
 type Props = {
   watchList: Movie[];
-  addToWatchList: (movie: any) => void;
   deleteFromList: (movie: any) => void;
-  onList: boolean;
 };
-export const WatchList: React.FC<Props> = ({
-  watchList,
-  addToWatchList,
-  deleteFromList,
-}) => {
+export const WatchList: React.FC<Props> = ({ watchList, deleteFromList }) => {
   return (
     <div className="watchList">
-      {watchList &&
+      {watchList.length === 0 ? (
+        <p>No favorites added</p>
+      ) : (
         watchList.map((movie, index) => (
           <MovieTile
             key={index}
             movie={movie}
-            addToWatchList={addToWatchList}
             deleteFromList={deleteFromList}
             onList={false}
           />
-        ))}
+        ))
+      )}
     </div>
   );
 };

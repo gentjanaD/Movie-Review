@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "../App.css";
 import { Movie } from "../Types/movieTypes";
 
 type Props = {
-  addToWatchList: (movie: any) => void;
+  addToWatchList?: (movie: any) => void;
   onList: boolean;
-  deleteFromList: (movie: any) => void;
+  deleteFromList?: (movie: any) => void;
   movie: Movie;
+  // isClicked: boolean;
 };
 
 const MovieTile: React.FC<Props> = ({
@@ -15,6 +16,11 @@ const MovieTile: React.FC<Props> = ({
   deleteFromList,
   movie,
 }) => {
+  // const [isClicked, setIsClicked] = useState(false);
+  // const onClickAddToWatchList = () => {
+  //   addToWatchList(movie);
+  //   setIsClicked((prevState) => !prevState);
+  // };
   return (
     <div className="movieTile">
       <h3>{movie.title}</h3>
@@ -32,6 +38,7 @@ const MovieTile: React.FC<Props> = ({
             -
           </button>
         )}
+        {/* {onList && isClicked(<button>added</button>)} */}
       </div>
     </div>
   );

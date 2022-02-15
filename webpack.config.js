@@ -5,6 +5,7 @@ module.exports = {
   target: "web",
   output: {
     path: path.resolve(__dirname, "dist"),
+    publicPath: "auto",
   },
   resolve: {
     extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
@@ -31,6 +32,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
       },
     ],
   },
