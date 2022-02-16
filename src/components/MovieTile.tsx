@@ -36,12 +36,20 @@ const MovieTile: React.FC<Props> = ({
               <FcCheckmark />
             </button>
           ) : (
-            <button className="addButton" onClick={onClickAddToWatchList}>
+            <button
+              className="addButton"
+              title="Add to watch list"
+              onClick={onClickAddToWatchList}
+            >
               +
             </button>
           )
         ) : (
-          <button className="deleteButton" onClick={onClickDeleteFromWatchList}>
+          <button
+            className="deleteButton"
+            title="Remove from watch list"
+            onClick={onClickDeleteFromWatchList}
+          >
             -
           </button>
         )}

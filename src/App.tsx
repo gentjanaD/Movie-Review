@@ -11,7 +11,7 @@ const App: React.FC = () => {
   const dispatch = useDispatch();
   const [watchList, setWatchList] = useState<Movie[]>([]);
   const addToWatchList = (movie: Movie) => {
-    watchList.includes(movie) ||
+    watchList.map((mov) => mov.title).includes(movie.title) ||
       setWatchList((prevState) => [...prevState, movie]);
   };
 
