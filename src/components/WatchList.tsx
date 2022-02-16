@@ -15,6 +15,7 @@ export const WatchList: React.FC<Props> = ({ watchList, deleteFromList }) => {
           movie={movie}
           deleteFromList={deleteFromList}
           onList={false}
+          watchList={watchList}
         />
       ))}
     </div>

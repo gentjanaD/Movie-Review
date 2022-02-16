@@ -1,24 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../App.css";
 import { Movie } from "../Types/movieTypes";
 import MovieTile from "./MovieTile";
-// import * as CSS from "csstype";
 type Props = {
   category: string;
   fetchedMovies: any;
+  watchList: Movie[];
   addToWatchList: (movie: any) => void;
 };
 const MovieList: React.FC<Props> = ({
   category,
   fetchedMovies,
   addToWatchList,
+  watchList,
 }) => {
   return (
     <div className="catMovieList">
-      <div
-        className="cat_movieList"
-        // style={{ color: "white", overflow: "scroll" }}
-      >
+      <div className="cat_movieList">
         {fetchedMovies &&
           fetchedMovies[category].map((movie: Movie, index: number) => (
             <MovieTile
@@ -26,17 +24,11 @@ const MovieList: React.FC<Props> = ({
               addToWatchList={addToWatchList}
               movie={movie}
               onList={true}
+              watchList={watchList}
             />
           ))}
       </div>
     </div>
   );
 };
-
-// const styles: { [key: string]: React.CSSProperties } = {
-//   container: {
-//     overflow: scroll,
-//   },
-// };
-
 export default MovieList;

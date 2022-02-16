@@ -10,7 +10,6 @@ import logo from "../public/assets/logo3.png";
 const App: React.FC = () => {
   const dispatch = useDispatch();
   const [watchList, setWatchList] = useState<Movie[]>([]);
-
   const addToWatchList = (movie: Movie) => {
     watchList.includes(movie) ||
       setWatchList((prevState) => [...prevState, movie]);
@@ -23,6 +22,7 @@ const App: React.FC = () => {
         : [...prevState];
     });
   };
+
   const fetchedMovies = useSelector(
     (state: State) => state.movieReducer.movies
   );
@@ -48,7 +48,7 @@ const App: React.FC = () => {
       <div className="app_watchList">
         {watchList.length > 0 && (
           <div>
-            <h1>Favorites</h1>
+            <h1>WatchList</h1>
             <WatchList watchList={watchList} deleteFromList={deleteFromList} />
           </div>
         )}
@@ -65,6 +65,7 @@ const App: React.FC = () => {
               category={category}
               fetchedMovies={fetchedMovies}
               addToWatchList={addToWatchList}
+              watchList={watchList}
             />
           </div>
         </div>
