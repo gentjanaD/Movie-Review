@@ -1,0 +1,6 @@
+.watchList {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  margin-left: 3px;
+}

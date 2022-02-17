@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchDiscoverMovies, fetchMoviesByCatId } from "./redux/movieActions";
 import { fetchCategories } from "./redux/categoryActions";
 import "./App.css";
-import MovieList from "./components/MovieList";
+import MovieList from "./components/movielist/MovieList";
 import { Movie, Category, State } from "./Types/movieTypes";
-import { WatchList } from "./components/WatchList";
+import { WatchList } from "./components/watchlist/WatchList";
 import logo from "../public/assets/logo3.png";
 const App: React.FC = () => {
   const dispatch = useDispatch();
@@ -43,7 +43,7 @@ const App: React.FC = () => {
   return (
     <div className="app">
       <div className="logo_div">
-        <img src={logo} className="logo" />
+        <img src={logo} className="logo_img" />
       </div>
       <div className="app_watchList">
         {watchList.length > 0 && (
@@ -54,11 +54,7 @@ const App: React.FC = () => {
         )}
       </div>
       {Object.keys(fetchedMovies).map((category: string, index: number) => (
-        <div
-          className="category__movieList"
-          style={{ color: "white" }}
-          key={index}
-        >
+        <div className="app__categories" style={{ color: "white" }} key={index}>
           <h1>{category}</h1>
           <div className="app_movieList">
             <MovieList

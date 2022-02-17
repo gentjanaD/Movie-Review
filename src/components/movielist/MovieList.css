@@ -1,0 +1,7 @@
+.cat_movieList {
+  display: flex;
+  /* overflow: auto; */
+  padding: 4px;
+  width: 100vw;
+  height: 50vh;
+}

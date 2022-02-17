@@ -14,9 +14,9 @@ body {
   display: flex;
   justify-content: flex-end;
 }
-img {
+
+.logo_img {
   width: 170px;
-  position: absolute;
   position: sticky;
   top: 0;
   right: 0;
@@ -31,101 +31,19 @@ img {
 .app_movieList {
   display: flex;
   flex-direction: row;
-  overflow: scroll;
+  overflow-x: scroll;
 }
-.category__movieList {
+.app__categories {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-.cat_movieList {
-  display: flex;
-  overflow: auto;
-  padding: 4px;
-  width: 100vw;
-}
-
-.movieTile {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  margin-left: 10px;
-  margin-right: 10px;
-  border: solid rgb(83, 80, 80) 2px;
-}
 
 .app_watchList h1 {
   min-width: 100px;
-  /* margin-top: -45px; */
-}
-.watchList {
-  display: flex;
-  flex-direction: row;
-  color: white;
-}
-.watchList p {
   margin-left: 10px;
-  color: #e04a4a;
 }
 
-.button {
-  background-color: red;
-  margin: 20px;
-}
 h1 {
   color: white;
-}
-
-.movieTile img {
-  width: auto;
-  height: 100%;
-}
-
-.hide {
-  display: none;
-}
-.movieTile h3 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 5px;
-  max-height: 5%;
-}
-.addButton {
-  position: absolute;
-  top: -5px;
-  right: -13px;
-  font-weight: bold;
-  font-size: large;
-  width: 34px;
-  height: 34px;
-  border-radius: 100%;
-  cursor: pointer;
-  color: rgb(183, 177, 177);
-  background-color: rgb(0, 0, 0);
-}
-.addButton:hover {
-  border: 1px solid #888;
-  background-color: #ddd;
-  color: black;
-}
-
-.deleteButton {
-  position: absolute;
-  top: -5px;
-  right: -13px;
-  font-weight: bold;
-  font-size: large;
-  width: 34px;
-  height: 34px;
-  border-radius: 100%;
-  cursor: pointer;
-  color: rgb(183, 177, 177);
-  background-color: rgb(0, 0, 0);
-}
-.deleteButton:hover {
-  border: 1px solid #888;
-  background-color: #ddd;
-  color: black;
 }

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "../App.css";
-import { Movie } from "../Types/movieTypes";
+import "./MovieTile.css";
+import { Movie } from "../../Types/movieTypes";
 import { FcCheckmark } from "react-icons/fc";
+import { IoIosAdd, IoIosRemove } from "react-icons/io";
 type Props = {
   addToWatchList?: (movie: any) => void;
   onList?: boolean;
@@ -41,7 +42,7 @@ const MovieTile: React.FC<Props> = ({
               title="Add to watch list"
               onClick={onClickAddToWatchList}
             >
-              +
+              <IoIosAdd />
             </button>
           )
         ) : (
@@ -50,7 +51,7 @@ const MovieTile: React.FC<Props> = ({
             title="Remove from watch list"
             onClick={onClickDeleteFromWatchList}
           >
-            -
+            <IoIosRemove />
           </button>
         )}
       </div>
