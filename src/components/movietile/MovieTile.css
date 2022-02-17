@@ -22,10 +22,6 @@ img {
   position: sticky;
   z-index: -1;
 }
-/* .img_background {
-  background-color: black;
-  z-index: -1;
-} */
 .addButton {
   position: absolute;
   top: -5px;
