@@ -30,42 +30,40 @@ const MovieTile: React.FC<Props> = ({
 
   return (
     <>
-      <div className="movieTile">
-        <button onClick={() => setIsModalOpen(true)}>More Info</button>
-        {/* {isModalOpen ? ( */}
+      <div>
         <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
           fancy Modal
         </Modal>
-        {/* ) : ( */}
-        <div>
-          <img src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path} />
-          {onList ? (
-            watchList
-              .map((singleMovie) => singleMovie.title)
-              .includes(movie.title) ? (
-              <button className="addButton" onClick={onClickAddToWatchList}>
-                <FcCheckmark />
-              </button>
+        <div className="movieTile" onClick={() => setIsModalOpen(true)}>
+          <div>
+            <img src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path} />
+            {onList ? (
+              watchList
+                .map((singleMovie) => singleMovie.title)
+                .includes(movie.title) ? (
+                <button className="addButton" onClick={onClickAddToWatchList}>
+                  <FcCheckmark />
+                </button>
+              ) : (
+                <button
+                  className="addButton"
+                  title="Add to watch list"
+                  onClick={onClickAddToWatchList}
+                >
+                  <IoIosAdd />
+                </button>
+              )
             ) : (
               <button
-                className="addButton"
-                title="Add to watch list"
-                onClick={onClickAddToWatchList}
+                className="deleteButton"
+                title="Remove from watch list"
+                onClick={onClickDeleteFromWatchList}
               >
-                <IoIosAdd />
+                <IoIosRemove />
               </button>
-            )
-          ) : (
-            <button
-              className="deleteButton"
-              title="Remove from watch list"
-              onClick={onClickDeleteFromWatchList}
-            >
-              <IoIosRemove />
-            </button>
-          )}
+            )}
+          </div>
         </div>
-        {/* )} */}
       </div>
     </>
   );
