@@ -4,9 +4,8 @@
   position: relative;
   margin-left: 10px;
   margin-right: 17px;
-  border: solid rgb(83, 80, 80) 2px;
+  border: solid 1px #8a7120;
 }
-
 .movieTile img {
   width: auto;
 }
@@ -23,6 +22,10 @@ img {
   position: sticky;
   z-index: -1;
 }
+/* .img_background {
+  background-color: black;
+  z-index: -1;
+} */
 .addButton {
   position: absolute;
   top: -5px;

@@ -6,7 +6,7 @@ import "./App.css";
 import MovieList from "./components/movielist/MovieList";
 import { Movie, Category, State } from "./Types/movieTypes";
 import { WatchList } from "./components/watchlist/WatchList";
-import logo from "../public/assets/logo3.png";
+import logo from "../public/assets/logo_gold.png";
 const App: React.FC = () => {
   const dispatch = useDispatch();
   const [watchList, setWatchList] = useState<Movie[]>([]);
