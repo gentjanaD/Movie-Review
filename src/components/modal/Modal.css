@@ -8,7 +8,7 @@
   z-index: 1000;
 } */
 
-.modal {
+/* .modal {
   position: "fixed";
   top: "50%";
   left: "50%";
@@ -16,4 +16,7 @@
   background-color: "#202124";
   padding: "50px";
   z-index: 1000;
-}
+} */
+/* .modal_button {
+  z-index: 1;
+} */

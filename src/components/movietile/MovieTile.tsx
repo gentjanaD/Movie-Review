@@ -9,7 +9,6 @@ type Props = {
   onList?: boolean;
   deleteFromList?: (movie: any) => void;
   movie: Movie;
-  isClicked?: string;
   watchList?: Movie[];
 };
 
@@ -30,13 +29,31 @@ const MovieTile: React.FC<Props> = ({
 
   return (
     <>
-      <div>
+      {/* {console.log("mon", movie)} */}
+      <div className="modal_div">
         <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-          fancy Modal
+          <img
+            className="modal_design"
+            src={"https://image.tmdb.org/t/p/w300/" + movie.backdrop_path}
+          />
+          <h2>{movie.title}</h2>
+          <p>{movie.overview}</p>
+          <div className="modalContent">
+            <button
+              className="addButtonInModal"
+              onClick={onClickAddToWatchList}
+            >
+              <h3>+</h3>
+            </button>
+            <p id="addButtonText">Add To Watch list</p>
+          </div>
         </Modal>
-        <div className="movieTile" onClick={() => setIsModalOpen(true)}>
+        <div className="movieTile">
           <div>
-            <img src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path} />
+            <img
+              className="moviePoster"
+              src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path}
+            />
             {onList ? (
               watchList
                 .map((singleMovie) => singleMovie.title)
@@ -62,6 +79,10 @@ const MovieTile: React.FC<Props> = ({
                 <IoIosRemove />
               </button>
             )}
+            <div
+              className="transparent_click_div"
+              onClick={() => setIsModalOpen(true)}
+            ></div>
           </div>
         </div>
       </div>
