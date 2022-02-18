@@ -117,7 +117,11 @@ const App: React.FC = () => {
         ))
       ) : (
         <div className="app_Searchlist">
-          <SearchResult searchResults={searchResults} />
+          <SearchResult
+            searchResults={searchResults}
+            watchList={watchList}
+            addToWatchList={addToWatchList}
+          />
         </div>
       )}
     </div>

@@ -10,7 +10,7 @@ body {
   flex-direction: column;
   overflow: hidden;
   scrollbar-gutter: none;
-  scrollbar-width: none;
+  /* scrollbar-width: none; */
 }
 
 .nav_scroll {
