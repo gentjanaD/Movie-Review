@@ -10,6 +10,7 @@ type Props = {
   deleteFromList?: (movie: any) => void;
   movie: Movie;
   watchList?: Movie[];
+  searchMovie?: Movie;
 };
 
 const MovieTile: React.FC<Props> = ({
@@ -29,7 +30,6 @@ const MovieTile: React.FC<Props> = ({
 
   return (
     <>
-      {/* {console.log("mon", movie)} */}
       <div className="modal_div">
         <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
           <img

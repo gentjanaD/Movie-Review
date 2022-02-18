@@ -12,6 +12,12 @@ body {
   scrollbar-gutter: none;
   scrollbar-width: none;
 }
+
+.nav_scroll {
+  display: flex;
+  justify-content: space-between;
+}
+
 .logo_div {
   display: flex;
   justify-content: flex-end;

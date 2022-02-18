@@ -38,7 +38,6 @@ export const fetchDiscoverMoviesFailure = (error) => {
     payload: error,
   };
 };
-
 const handleError = (response) => {
   if (!response.ok) {
     throw Error(response.statusText);
