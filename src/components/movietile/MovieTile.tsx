@@ -56,7 +56,7 @@ const MovieTile: React.FC<Props> = ({
             />
             {onList ? (
               watchList
-                .map((singleMovie) => singleMovie.title)
+                ?.map((singleMovie) => singleMovie.title)
                 .includes(movie.title) ? (
                 <button className="addButton" onClick={onClickAddToWatchList}>
                   <FcCheckmark />

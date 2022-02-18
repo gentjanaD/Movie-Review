@@ -1,31 +1,21 @@
-import React, { useState } from "react";
-
-export const SearchBar = () => {
-  const [input, setInput] = useState("");
-
-  const handleOnSubmit = (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    //filtering
-  };
-
-  const onChangeHandler = (e: any) => {
-    setInput(e.target.value);
-  };
-
+import React from "react";
+import "./SearchBar.css";
+import { MdSearch } from "react-icons/md";
+type Props = {
+  onChangeHandlerFunc: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
+const SearchBar: React.FC<Props> = ({ onChangeHandlerFunc }) => {
   return (
-    <div>
-      {console.log(input)}
-      <form onSubmit={handleOnSubmit}>
-        <input
-          type="text"
-          id="header-search"
-          placeholder="Search movies"
-          name="search"
-          onChange={onChangeHandler}
-          value={input}
-        />
-        <button type="submit">Search</button>
-      </form>
+    <div className="searchBar ">
+      <input
+        className="serachBarInput"
+        type="text"
+        placeholder="Search movies"
+        onChange={onChangeHandlerFunc}
+      />
+      <MdSearch />
     </div>
   );
 };
+
+export default SearchBar;

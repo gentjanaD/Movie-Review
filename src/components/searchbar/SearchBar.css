@@ -1,9 +1,14 @@
-.visually-hidden {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
+.searchBar {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: none;
+  padding-right: 10px;
+  padding-left: 10px;
+
+  font-size: x-large;
+}
+
+.serachBarInput {
+  border: none;
 }

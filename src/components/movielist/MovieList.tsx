@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./MovieList.css";
 import { Movie } from "../../Types/movieTypes";
 import MovieTile from "../movietile/MovieTile";
-import movieReducer from "../../redux/movieReducer";
 type Props = {
   category: string;
   fetchedMovies: any;
   watchList: Movie[];
   addToWatchList: (movie: any) => void;
-  filteredMovieTitles: string[];
-  uniqueMovieData: Movie[];
 };
 const MovieList: React.FC<Props> = ({
   category,

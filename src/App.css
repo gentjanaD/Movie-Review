@@ -16,11 +16,15 @@ body {
 .nav_scroll {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  margin-left: 20px;
 }
 
 .logo_div {
   display: flex;
   justify-content: flex-end;
+  margin-right: 25px;
 }
 
 .logo_img {
@@ -40,12 +44,16 @@ body {
   flex-direction: row;
   overflow: scroll;
 }
+.app_Searchlist {
+  display: flex;
+  flex-direction: row;
+}
 .app__categories {
   display: flex;
   flex-direction: column;
   width: 100%;
   position: static;
-  /* align-items: center; */
+  margin-left: 10px;
 }
 
 .app_watchList h1 {

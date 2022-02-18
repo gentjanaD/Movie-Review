@@ -6,9 +6,9 @@ import "./App.css";
 import MovieList from "./components/movielist/MovieList";
 import { Movie, Category, State } from "./Types/movieTypes";
 import { WatchList } from "./components/watchlist/WatchList";
-import { SearchBar } from "./components/searchbar/SearchBar";
-import MovieTile from "./components/movietile/MovieTile";
+import SearchBar from "./components/searchbar/SearchBar";
 import logo from "../public/assets/logo_gold.png";
+import SearchResult from "./components/searchResult/SearchResult";
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
@@ -19,7 +19,6 @@ const App: React.FC = () => {
     watchList.map((mov) => mov.title).includes(movie.title) ||
       setWatchList((prevState) => [...prevState, movie]);
   };
-
   const deleteFromList = (movie: Movie) => {
     setWatchList((prevState) => {
       return prevState.includes(movie)
@@ -34,6 +33,7 @@ const App: React.FC = () => {
   const fetchedCategories = useSelector(
     (state: State) => state.categoryReducer.categories
   );
+
   useEffect(() => {
     dispatch(fetchCategories());
   }, []);
@@ -45,16 +45,15 @@ const App: React.FC = () => {
     dispatch(fetchDiscoverMovies());
   }, [fetchedCategories]);
 
-  const newMovieData = Object.values(fetchedMovies)
+  const movieTitlesArr = Object.values(fetchedMovies)
     .flat()
     .map((mov) => mov.title);
 
-  const uniMovies = Object.values(fetchedMovies)
+  const allMoviesArr = Object.values(fetchedMovies)
     .flat()
     .map((mov) => mov);
-  // console.log(uniMovies);
 
-  const noDuplicateMovies = uniMovies.reduce((acc, current) => {
+  const noDuplicateMoviesArr = allMoviesArr.reduce((acc, current) => {
     const singleMovie = acc.find((item) => item.title === current.title);
     if (!singleMovie) {
       return acc.concat([current]);
@@ -62,36 +61,30 @@ const App: React.FC = () => {
       return acc;
     }
   }, []);
-  const uniqueMovieData = newMovieData.reduce(
-    (uniqueMovie, item) =>
-      uniqueMovie.includes(item) ? uniqueMovie : [...uniqueMovie, item],
-    []
-  );
+
   useEffect(() => {
     setFilteredMovieTitles(
-      uniqueMovieData.filter((movieTitle: string) => {
+      movieTitlesArr.filter((movieTitle: string) => {
         return movieTitle.toLowerCase().includes(search.toLowerCase());
       })
     );
   }, [search]);
+
   const searchResults: Movie[] = [];
-  noDuplicateMovies.forEach(
+  noDuplicateMoviesArr.forEach(
     (movie) =>
       filteredMovieTitles.includes(movie.title) && searchResults.push(movie)
   );
 
+  const onChangeHandlerFunc = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    setSearch(newValue);
+  };
+
   return (
     <div className="app">
       <div className="nav_scroll">
-        {/* {console.log(searchResults)} */}
-        {/* <SearchBar /> */}
-        {/* {search} */}
-        {/* {console.log(filteredMovieTitles)} */}
-        <input
-          type="text"
-          placeholder="Search"
-          onChange={(e) => setSearch(e.target.value)}
-        ></input>
+        <SearchBar onChangeHandlerFunc={onChangeHandlerFunc} />
         <div className="logo_div">
           <img src={logo} className="logo_img" />
         </div>
@@ -104,31 +97,29 @@ const App: React.FC = () => {
           </div>
         )}
       </div>
-      {searchResults.length === 0
-        ? Object.keys(fetchedMovies).map((category: string, index: number) => (
-            <div
-              className="app__categories"
-              style={{ color: "white" }}
-              key={index}
-            >
-              <h1>{category}</h1>
-              <div className="app_movieList">
-                <MovieList
-                  category={category}
-                  fetchedMovies={fetchedMovies}
-                  filteredMovieTitles={filteredMovieTitles}
-                  addToWatchList={addToWatchList}
-                  watchList={watchList}
-                  uniqueMovieData={uniMovies}
-                />
-              </div>
+      {!search ? (
+        Object.keys(fetchedMovies).map((category: string, index: number) => (
+          <div
+            className="app__categories"
+            style={{ color: "white" }}
+            key={index}
+          >
+            <h1>{category}</h1>
+            <div className="app_movieList">
+              <MovieList
+                category={category}
+                fetchedMovies={fetchedMovies}
+                addToWatchList={addToWatchList}
+                watchList={watchList}
+              />
             </div>
-          ))
-        : searchResults?.map((mov, index) => (
-            <div key={index}>
-              <MovieTile movie={mov} />
-            </div>
-          ))}
+          </div>
+        ))
+      ) : (
+        <div className="app_Searchlist">
+          <SearchResult searchResults={searchResults} />
+        </div>
+      )}
     </div>
   );
 };
