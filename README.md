@@ -16,7 +16,7 @@ Purpose of this repo is to test and work with different technilogies.
 ### Tech Stack
 * React and Webpack
 * Redux for global state management
-* Redux-thunk as a middleware
+* Redux-thunk as a middleware for asynchronous fetching
 * Typescript 
 * Figma
 * Adobe Illustrator
