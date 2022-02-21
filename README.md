@@ -1,7 +1,7 @@
 ## Relish Movie App
-<p align='center'>
+<!-- <p align='center'> -->
 <img src="public/assets/logo_gold.png#gh-dark-mode-only" style=" width:30%; height:auto ">
-</p>
+<!-- </p> -->
 Building a Movie App with React and Webpack, that displays a list of movies from an api.
 
 Purpose of this repo is to test and work with different technilogies.
