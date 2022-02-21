@@ -1,5 +1,4 @@
 ## Relish Movie App
-<!-- ![this is an image](public/assets/logo_gold.png#gh-dark-mode-only) -->
 <p align='center'>
 <img src="public/assets/logo_gold.png#gh-dark-mode-only" style=" width:30%; height:auto ">
 </p>
