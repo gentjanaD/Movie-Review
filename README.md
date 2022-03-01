@@ -11,7 +11,7 @@ Building a Movie App with React and Webpack, that displays a list of movies from
 </br>
 </br>
 
-<div align="center">
+<div align="left">
 <img alt="typescript logo" width="40px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" />
 <img alt="react native logo" width="40px" src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" />
 <img alt="ts logo" width="40px" src="./public/assets/Typescript_logo_2020.svg.png"/>
