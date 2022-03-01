@@ -4,6 +4,11 @@
 <img src="public/assets/logo_gold.png#gh-dark-mode-only" style=" width:30%; height:auto ">
 </p>
 
+<div align="center">
+<img src="public/assets/movieApp1.png" style=" width:30%; height:auto">
+<img src="public/assets/movieApp2.png" style=" width:30%; height:auto ">
+</div>
+
 Deployed on
 [Relish Movie App](https://gentjanad.github.io/Movie-Review/)
 
