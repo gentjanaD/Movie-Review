@@ -16,6 +16,7 @@ Building a Movie App with React and Webpack, that displays a list of movies from
 <img alt="react native logo" width="40px" src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" />
 <img alt="ts logo" width="40px" src="./public/assets/Typescript_logo_2020.svg.png"/>
 <img  alt="figma logo" width="40px" src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg"  height="37"/>
+<img alt="ai logo" width="40px" src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Adobe_Illustrator_icon_CS6.svg"/>
 </div>
 
 </br>
