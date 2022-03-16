@@ -10,7 +10,7 @@
 </div>
 
 Deployed on
-[Relish Movie App](https://gentjanad.github.io/Movie-Review/)
+[Relish Movie App](https://gentjanad.github.io/Relish/)
 
 Building a Movie App with React and Webpack, that displays a list of movies from an api.
 </br>
